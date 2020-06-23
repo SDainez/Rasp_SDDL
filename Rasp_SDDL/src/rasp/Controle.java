@@ -81,7 +81,7 @@ public class Controle {
 //			SoftPwm.softPwmWrite(enEsqPin, potencia);
 			enaDir.setPwm((int) (potencia*512));
 			enaEsq.setPwm((int) (potencia*1024));
-			frenteDir.high();
+			frenteDir.low();
 			frenteEsq.high();
 			trasDir.low();
 			trasEsq.low();
@@ -105,7 +105,7 @@ public class Controle {
 			enaEsq.setPwm((int) (potencia*1024));
 			frenteDir.low();
 			frenteEsq.low();
-			trasDir.high();
+			trasDir.low();
 			trasEsq.high();
 			break;
 			
@@ -128,7 +128,7 @@ public class Controle {
 			frenteDir.low();
 			frenteEsq.low();
 			trasDir.high();
-			trasEsq.high();
+			trasEsq.low();
 			break;
 			
 		case "Esquerda":
@@ -148,7 +148,7 @@ public class Controle {
 			enaDir.setPwm((int) (potencia*1024));
 			enaEsq.setPwm((int) (potencia*512));
 			frenteDir.high();
-			frenteEsq.high();
+			frenteEsq.low();
 			trasDir.low();
 			trasEsq.low();
 			break;

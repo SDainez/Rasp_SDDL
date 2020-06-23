@@ -21,7 +21,7 @@ public class Operacao {
 		}while(conexao.getMyUUID() == null);
 		
 		System.out.println("UUID: " + conexao.getMyUUID().toString());
-//		conexao.sendUUID();
+		conexao.sendIP();
 		
 		
 	

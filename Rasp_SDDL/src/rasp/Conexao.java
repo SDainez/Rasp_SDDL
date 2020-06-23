@@ -1,6 +1,7 @@
 package rasp;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.util.List;
@@ -129,8 +130,11 @@ public class Conexao implements NodeConnectionListener, GroupMembershipListener 
         ApplicationMessage appMsg = new ApplicationMessage();
         appMsg.setContentObject(nome + " Entrou no grupo");
         System.out.println("CONECTADO AO GRUPO (250,1)!");
+        
+        
         try {
             groupManager.sendGroupcastMessage(appMsg, aGroup);
+            
     		
         } catch (IOException e) {
             e.printStackTrace();
@@ -150,11 +154,13 @@ public class Conexao implements NodeConnectionListener, GroupMembershipListener 
 
     }
     
-    public void sendUUID() {
+    public void sendIP() {
     	ApplicationMessage appMsg = new ApplicationMessage();
-        appMsg.setContentObject("001x " + myUUID);
+//        appMsg.setContentObject("001x " + myUUID);
         try {
-            groupManager.sendGroupcastMessage(appMsg, aGroup);
+        	String ipDaMaquina = InetAddress.getLocalHost().getHostAddress();
+        	appMsg.setContentObject("001x " + ipDaMaquina);
+        	groupManager.sendGroupcastMessage(appMsg, aGroup);
     		
         } catch (IOException e) {
             e.printStackTrace();
