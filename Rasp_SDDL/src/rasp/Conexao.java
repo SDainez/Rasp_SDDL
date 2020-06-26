@@ -106,6 +106,12 @@ public class Conexao implements NodeConnectionListener, GroupMembershipListener 
 				e.printStackTrace();
 			}
 		}
+		
+		if("led".equals(comandos[0])) {
+			
+			System.out.println("Comando: " + "Acionar LED: " + comandos[1]);
+			controle.led(comandos[1]);
+		}
 			
     }
 

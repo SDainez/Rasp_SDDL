@@ -209,6 +209,14 @@ public class Controle {
 		}
 
 	}
+	
+	public void led(String led) {
+		if("true".equals(led)) {
+			ledIR.high();
+		}else {
+			ledIR.low();
+		}
+	}
 
 
 }
